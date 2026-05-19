@@ -2,9 +2,18 @@
 
 [ext_resource type="Script" uid="uid://bfthsyipamego" path="res://components/camera/camera.gd" id="1_s8cyt"]
 [ext_resource type="Script" uid="uid://cq7j6bkgavilu" path="res://components/camera/utils.gd" id="2_5he1u"]
+[ext_resource type="Script" uid="uid://csojp3qhiepk" path="res://components/camera/follow_player.gd" id="3_yuem3"]
+[ext_resource type="Script" uid="uid://cuor0f0aoqm63" path="res://components/camera/static_position.gd" id="4_mf6hl"]
 
 [node name="Camera" type="Camera2D" unique_id=404260496]
 script = ExtResource("1_s8cyt")
+camera_mode = 1
 
 [node name="utils" type="Node" parent="." unique_id=117481448]
 script = ExtResource("2_5he1u")
+
+[node name="follow_player" type="Node" parent="." unique_id=1306528720]
+script = ExtResource("3_yuem3")
+
+[node name="static_position" type="Node" parent="." unique_id=646242007]
+script = ExtResource("4_mf6hl")
