@@ -1,13 +1,13 @@
 extends Node
 class_name CameraFollowPlayer
 
-@onready var utils: CameraUtils = $"../utils"
+@onready var utils: CameraUtils = %utils
 @onready var camera: Camera = get_parent() as Camera
 
 var mouse_look_ahead_current: Vector2 = Vector2.ZERO
 var _screen_center: Vector2 = Vector2.ZERO
 
-func _follow_player(delta: float) -> Vector2:
+func _update(delta: float) -> Vector2:
 	if not camera.player:
 		return camera.global_position
 	

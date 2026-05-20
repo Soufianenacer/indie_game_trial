@@ -18,10 +18,13 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("test_e"):
 		var camera: Camera = _get_first_in_group("camera") as Camera
 		camera._set_new_camera_static_position(Vector2(2.0, 100.0))
+		camera._new_zoom(Vector2(2.0,2.0))
 	# Press A/Q to folow the player
 	if Input.is_action_just_pressed("test_a"):
 		var camera: Camera = _get_first_in_group("camera") as Camera
+		camera._set_camera_shake()
 		camera._set_camera_target_player()
+		camera._new_zoom(Vector2(1.0,1.0))
 	
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
