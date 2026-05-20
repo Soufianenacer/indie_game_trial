@@ -7,13 +7,12 @@
 
 [node name="Camera" type="Camera2D" unique_id=404260496]
 script = ExtResource("1_s8cyt")
-camera_mode = 1
 
 [node name="utils" type="Node" parent="." unique_id=117481448]
 script = ExtResource("2_5he1u")
 
-[node name="follow_player" type="Node" parent="." unique_id=1306528720]
+[node name="camera_follow_player" type="Node" parent="." unique_id=1306528720]
 script = ExtResource("3_yuem3")
 
-[node name="static_position" type="Node" parent="." unique_id=646242007]
+[node name="camera_scenes" type="Node" parent="." unique_id=646242007]
 script = ExtResource("4_mf6hl")

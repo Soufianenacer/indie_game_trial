@@ -1,6 +1,5 @@
 extends Node
-
-
+class_name CameraScenes
 
 @onready var camera: Camera = get_parent() as Camera
 @onready var utils: CameraUtils = $"../utils"

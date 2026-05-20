@@ -3,8 +3,8 @@ class_name Camera
 
 @onready var utils: CameraUtils = $utils
 
-@onready var follow_player: CameraMovementsUtils = $follow_player
-@onready var static_position: Node = $static_position
+@onready var follow_player: CameraFollowPlayer = $follow_player
+@onready var static_position: CameraScenes = $static_position
 
 @export_category("Follow Player")
 @export_group("Follow Player")
@@ -27,6 +27,7 @@ class_name Camera
 @export_range(-300.0, 300.0, 0.1) var camera_offset_x: float = 0.0
 @export_range(-300.0, 300.0, 0.1) var camera_offset_y: float = 0.0
 
+
 var mouse_look_ahead_target: Vector2 = Vector2.ZERO
 var mouse_look_ahead_current: Vector2 = Vector2.ZERO
 
@@ -39,10 +40,9 @@ var new_camera_target: Vector2 = Vector2.ZERO
 enum CAMERA_MODE { FOLLOW_PLAYER, STATIC }
 @export_enum("FOLLOW_PLAYER", "STATIC") var camera_mode: int = CAMERA_MODE.FOLLOW_PLAYER
 
-
-
 func _ready() -> void:
 	add_to_group("camera")
+	
 	player = utils._get_first_in_group("player") as Player
 	global_position = player.global_position
 	zoom = Vector2(initial_zoom, initial_zoom)
@@ -51,10 +51,8 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	match camera_mode:
-		CAMERA_MODE.FOLLOW_PLAYER:
-			global_position = follow_player._follow_player(delta)
-		CAMERA_MODE.STATIC:
-			global_position = static_position._camera_static_position(delta)
+		CAMERA_MODE.FOLLOW_PLAYER: global_position = follow_player._follow_player(delta)
+		CAMERA_MODE.STATIC: global_position = static_position._camera_static_position(delta)
 
 func _set_new_camera_static_position(new_pos: Vector2):
 	new_camera_target = new_pos

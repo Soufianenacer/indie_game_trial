@@ -1,11 +1,26 @@
-extends Node
-class_name CameraFollowPlayer
+extends GlobalState
 
-@onready var utils: CameraUtils = $"../utils"
-@onready var camera: Camera = get_parent() as Camera
+
+
+@onready var camera: Camera = $"../.."
+@onready var utils: CameraUtils = $"../../utils"
+
+
 
 var mouse_look_ahead_current: Vector2 = Vector2.ZERO
 var _screen_center: Vector2 = Vector2.ZERO
+
+
+func Phisics_Update(delta: float):
+	if not camera.CAMERA_MODE.FOLLOW_PLAYER:
+		camera.camera_mode = camera.CAMERA_MODE.STATIC
+		Transitioned.emit(self, "camera_scenes")
+		return
+	_follow_player(delta)
+
+
+
+
 
 func _follow_player(delta: float) -> Vector2:
 	if not camera.player:
@@ -39,3 +54,13 @@ func _follow_player(delta: float) -> Vector2:
 		camera_target,
 		utils._smooth_expo(camera.player_follow_speed, delta)
 	)
+
+
+
+
+
+
+
+
+
+	
