@@ -29,6 +29,7 @@ folder_colors={
 "res://assets/": "yellow",
 "res://characters/": "orange",
 "res://components/": "teal",
+"res://environment/": "red",
 "res://global_scripts/": "red",
 "res://hooks/": "green"
 }
