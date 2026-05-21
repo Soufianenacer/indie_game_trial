@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dd0ub0ucn12ul"]
+
+[ext_resource type="Script" uid="uid://c6eeecbyqfuv7" path="res://menu/start_menu_ui/main_menu.gd" id="1_xxkeb"]
+[ext_resource type="PackedScene" uid="uid://b6efoydshspom" path="res://menu/main_menu_ui/main_menu_ui.tscn" id="2_e558a"]
+[ext_resource type="PackedScene" uid="uid://cblahmtowlc1u" path="res://menu/settings_ui/settings_menu.tscn" id="2_r8no3"]
+
+[node name="MainMenu" type="Control" unique_id=440688264]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xxkeb")
+
+[node name="MenuLayer" type="CanvasLayer" parent="." unique_id=179337243]
+
+[node name="MainMenuUI" parent="MenuLayer" unique_id=196979488 instance=ExtResource("2_e558a")]
+unique_name_in_owner = true
+
+[node name="SettingsMenuUI" parent="MenuLayer" unique_id=730046895 instance=ExtResource("2_r8no3")]
+unique_name_in_owner = true
+visible = false
+
+[connection signal="quit_button_pressed" from="MenuLayer/MainMenuUI" to="." method="_on_main_menu_ui_quit_button_pressed"]
+[connection signal="settings_button_pressed" from="MenuLayer/MainMenuUI" to="." method="_on_settings_button_pressed"]
+[connection signal="start_button_pressed" from="MenuLayer/MainMenuUI" to="." method="_on_main_menu_ui_start_button_pressed"]
+[connection signal="back_pressed" from="MenuLayer/SettingsMenuUI" to="." method="_on_settings_back_pressed"]

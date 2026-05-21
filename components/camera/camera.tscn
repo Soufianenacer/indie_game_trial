@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://bfthsyipamego" path="res://components/camera/camera.gd" id="1_s8cyt"]
 [ext_resource type="Script" uid="uid://cq7j6bkgavilu" path="res://components/camera/utils.gd" id="2_5he1u"]
-[ext_resource type="Script" uid="uid://csojp3qhiepk" path="res://components/camera/follow_player.gd" id="3_yuem3"]
-[ext_resource type="Script" uid="uid://cuor0f0aoqm63" path="res://components/camera/static_position.gd" id="4_mf6hl"]
-[ext_resource type="Script" uid="uid://b534ikyy3ylme" path="res://components/camera/camera_shake.gd" id="5_503qr"]
+[ext_resource type="Script" path="res://components/camera/follow_player.gd" id="3_yuem3"]
+[ext_resource type="Script" path="res://components/camera/static_position.gd" id="4_mf6hl"]
+[ext_resource type="Script" path="res://components/camera/camera_shake.gd" id="5_503qr"]
 
 [node name="Camera" type="Camera2D" unique_id=404260496]
 script = ExtResource("1_s8cyt")

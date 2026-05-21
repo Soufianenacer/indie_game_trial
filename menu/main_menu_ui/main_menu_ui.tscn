@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://b6efoydshspom"]
+
+[ext_resource type="Script" uid="uid://djw5ewiwmkrip" path="res://menu/main_menu_ui/main_menu_ui.gd" id="1_i5ln2"]
+
+[node name="MainMenuUI" type="VBoxContainer" unique_id=196979488]
+custom_minimum_size = Vector2(300, 300)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -276.0
+offset_top = -228.5
+offset_right = 276.0
+offset_bottom = 228.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 5
+alignment = 1
+script = ExtResource("1_i5ln2")
+
+[node name="GameTitle" type="Label" parent="." unique_id=290967280]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 50
+text = "Game_Test"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Start" type="Button" parent="." unique_id=148464753]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Start
+"
+
+[node name="Settings" type="Button" parent="." unique_id=119489591]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Settings"
+
+[node name="Quit" type="Button" parent="." unique_id=747789558]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="Start" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Settings" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_button_pressed"]
