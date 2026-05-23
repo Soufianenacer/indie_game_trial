@@ -34,7 +34,7 @@ func _initialize_volume_slider() -> void:
 func _initialize_resolution_dropdown() -> void:
 	resolution_options.clear()
 	var current_window_size = DisplayServer.window_get_size()
-	var current_match_index = 0 # Default 
+	var current_match_index = 0 # Default
 	
 	for i in range(RESOLUTIONS.size()):
 		var res = RESOLUTIONS[i]
@@ -43,6 +43,7 @@ func _initialize_resolution_dropdown() -> void:
 			current_match_index = i
 			
 	resolution_options.selected = current_match_index
+	print(current_match_index)
 
 
 func _initialize_fullscreen_checkbox() -> void:
@@ -54,7 +55,9 @@ func _initialize_fullscreen_checkbox() -> void:
 # --- UI CONTROL SIGNALS ---
 
 func _on_volume_slider_value_changed(_value: float) -> void:
-	pass #TODO : Audio logic 
+	print(_value)
+	AudioBus.set_bus_volume(_value, "SFX")
+	pass #TODO : Audio logic
 
 
 func _on_resolution_button_item_selected(index: int) -> void:
@@ -65,6 +68,7 @@ func _on_resolution_button_item_selected(index: int) -> void:
 	var screen = DisplayServer.window_get_current_screen()
 	var screen_size = DisplayServer.screen_get_size(screen)
 	DisplayServer.window_set_position((screen_size / 2) - (selected_res / 2))
+
 
 
 func _on_fullscreen_check_toggled(toggled_on: bool) -> void:

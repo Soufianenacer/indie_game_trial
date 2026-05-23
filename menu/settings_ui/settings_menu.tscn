@@ -54,8 +54,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
-max_value = 1.0
-step = 0.05
+value = 50.0
 
 [node name="ResolutionLabel" type="Label" parent="MarginContainer/VBoxContainer/Settings/GridContainer" unique_id=328715664]
 layout_mode = 2

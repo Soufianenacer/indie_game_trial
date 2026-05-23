@@ -19,6 +19,7 @@ func _physics_process(delta: float) -> void:
 		var camera: Camera = _get_first_in_group("camera") as Camera
 		camera._set_new_camera_static_position(Vector2(2.0, 100.0))
 		camera._new_zoom(Vector2(2.0,2.0))
+		AudioBus._play_sound_at(self, "the_forest_sounds", 5.0, 0.5)
 	# Press A/Q to folow the player
 	if Input.is_action_just_pressed("test_a"):
 		var camera: Camera = _get_first_in_group("camera") as Camera

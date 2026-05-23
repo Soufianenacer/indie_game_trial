@@ -14,6 +14,7 @@ enum CAMERA_MODE { FOLLOW_PLAYER, STATIC }
 @export_group("Zoom")
 @export_range(0.5, 2.5, 0.1) var initial_zoom: float = 1.0
 @export_range(1.0, 20.0, 0.1) var zoom_speed: float = 2.0
+
 @export_group("Offset")
 @export_range(-1000.0, 1000.0, 0.1) var camera_offset_x: float = 0.0
 @export_range(-1000.0, 1000.0, 0.1) var camera_offset_y: float = 0.0
@@ -25,6 +26,7 @@ enum CAMERA_MODE { FOLLOW_PLAYER, STATIC }
 @export_group("Settings")
 @export_range(1.0, 10.0, 0.1) var mouse_look_ahead_speed: float = 4.0
 @export_range(1.0, 30.0, 0.1) var mouse_look_ahead_sensitivity: float = 15.0
+
 @export_group("Limits")
 @export_range(1.0, 100.0, 0.1) var mouse_look_ahead_max_distance_x: float = 20.0
 @export_range(1.0, 100.0, 0.1) var mouse_look_ahead_max_distance_y: float = 0.0
@@ -68,6 +70,11 @@ func _set_camera_shake() -> void:
 
 func _set_camera_target_player() -> void:
 	camera_mode = CAMERA_MODE.FOLLOW_PLAYER
+
+
+
+
+
 
 
 
