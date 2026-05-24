@@ -57,7 +57,7 @@ func _initialize_fullscreen_checkbox() -> void:
 func _on_volume_slider_value_changed(_value: float) -> void:
 	print(_value)
 	AudioBus.set_bus_volume(_value, "SFX")
-	pass #TODO : Audio logic
+	pass # TODO : Audio logic
 
 
 func _on_resolution_button_item_selected(index: int) -> void:
@@ -67,7 +67,7 @@ func _on_resolution_button_item_selected(index: int) -> void:
 	# Center the window on the desktop after resizing
 	var screen = DisplayServer.window_get_current_screen()
 	var screen_size = DisplayServer.screen_get_size(screen)
-	DisplayServer.window_set_position((screen_size / 2) - (selected_res / 2))
+	DisplayServer.window_set_position((Vector2(screen_size) / 2.0) - (Vector2(selected_res) / 2.0))
 
 
 

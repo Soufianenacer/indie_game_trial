@@ -3,29 +3,32 @@ class_name Player
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
-
 var direction: float = 0.0
+var attack_range: float = 200.0
 
 func _ready() -> void:
 	add_to_group("player")
+
+
+
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-
-	# Press E to set a new camera location
-	if Input.is_action_just_pressed("test_e"):
-		var camera: Camera = _get_first_in_group("camera") as Camera
-		camera._set_new_camera_static_position(Vector2(2.0, 100.0))
-		camera._new_zoom(Vector2(2.0,2.0))
-		AudioBus._play_sound_at(self, "the_forest_sounds", 5.0, 0.5)
-	# Press A/Q to folow the player
-	if Input.is_action_just_pressed("test_a"):
-		var camera: Camera = _get_first_in_group("camera") as Camera
-		camera._set_camera_shake()
-		camera._set_camera_target_player()
-		camera._new_zoom(Vector2(1.0,1.0))
+		
+	## WARNING Press E to set a new camera location
+	#if Input.is_action_just_pressed("test_e"):
+		#var camera: Camera = _get_first_in_group("camera") as Camera
+		#camera._set_new_camera_static_position(Vector2(2.0, 100.0))
+		#camera._new_zoom(Vector2(2.0,2.0))
+		#AudioBus._play_sound_at(self, "the_forest_sounds", 5.0, 0.5)
+	## WARNING Press A/Q to folow the player
+	#if Input.is_action_just_pressed("test_a"):
+		#var camera: Camera = _get_first_in_group("camera") as Camera
+		#camera._set_camera_shake()
+		#camera._set_camera_target_player()
+		#camera._new_zoom(Vector2(1.0,1.0))
 	
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
@@ -35,16 +38,7 @@ func _physics_process(delta: float) -> void:
 	direction = Input.get_axis("move_left", "move_right")
 	if direction: velocity.x = direction * SPEED
 	else: velocity.x = move_toward(velocity.x, 0, SPEED)
-
 	move_and_slide()
-
-
-
-
-
-
-
-
 
 
 
@@ -52,3 +46,14 @@ func _physics_process(delta: float) -> void:
 
 func _get_first_in_group(group_name: String) -> Node:
 	return get_tree().get_first_node_in_group(group_name)
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("left_click"):
+		var mouse_pos = get_global_mouse_position()
+		var distance = global_position.distance_to(mouse_pos)
+		if distance <= attack_range:
+			print("Click")
+
+func _draw() -> void:
+	draw_circle(Vector2.ZERO, attack_range, Color(0.0, 0.0, 0.0, 0.196))
+	

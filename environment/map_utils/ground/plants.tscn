@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bpjehsx67v3cw"]
+
+[ext_resource type="Script" uid="uid://dwqbrtf8f58kr" path="res://environment/map_utils/ground/plants.gd" id="1_i5qgm"]
+[ext_resource type="Texture2D" uid="uid://bp11p6xbivbth" path="res://assets/Texture/TX Village Props.png" id="1_lqmqt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lqmqt"]
+size = Vector2(18, 100)
+
+[node name="Plants" type="Area2D" unique_id=1696190551]
+script = ExtResource("1_i5qgm")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2125905811]
+scale = Vector2(3.15, 3.15)
+texture = ExtResource("1_lqmqt")
+region_enabled = true
+region_rect = Rect2(693, 471, 120, 138)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1949449262]
+position = Vector2(-3, 167)
+shape = SubResource("RectangleShape2D_lqmqt")

@@ -5,10 +5,15 @@
 [ext_resource type="Script" uid="uid://csojp3qhiepk" path="res://components/camera/follow_player.gd" id="3_yuem3"]
 [ext_resource type="Script" uid="uid://cuor0f0aoqm63" path="res://components/camera/static_position.gd" id="4_mf6hl"]
 [ext_resource type="Script" uid="uid://b534ikyy3ylme" path="res://components/camera/camera_shake.gd" id="5_503qr"]
+[ext_resource type="Texture2D" uid="uid://dn8knte6wrsjn" path="res://icon.svg" id="6_ls4k2"]
 
 [node name="Camera" type="Camera2D" unique_id=404260496]
+process_callback = 0
 script = ExtResource("1_s8cyt")
-mouse_look_ahead_max_distance_y = 275.70000000000005
+initial_zoom = 1.2
+camera_offset_y = -160.0
+mouse_look_ahead_speed = 9.0
+mouse_look_ahead_sensitivity_x = 30.0
 
 [node name="utils" type="Node" parent="." unique_id=117481448]
 unique_name_in_owner = true
@@ -25,5 +30,7 @@ script = ExtResource("5_503qr")
 shake_duration = 1.0
 shake_frequency = 30.0
 
-[node name="AudioListener2D" type="AudioListener2D" parent="." unique_id=1362821464]
-current = true
+[node name="refrance_icon" type="Sprite2D" parent="." unique_id=1706687215]
+position = Vector2(-522, -269)
+scale = Vector2(0.421875, 0.421875)
+texture = ExtResource("6_ls4k2")

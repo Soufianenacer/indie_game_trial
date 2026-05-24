@@ -24,12 +24,17 @@ enum CAMERA_MODE { FOLLOW_PLAYER, STATIC }
 
 @export_category("Look Ahead")
 @export_group("Settings")
+## Controls how fast the camera leads ahead of the mouse.
 @export_range(1.0, 10.0, 0.1) var mouse_look_ahead_speed: float = 4.0
-@export_range(1.0, 30.0, 0.1) var mouse_look_ahead_sensitivity: float = 15.0
+## Controls sensitivity X — lower values mean higher sensitivity.
+@export_range(1.0, 30.0, 0.1) var mouse_look_ahead_sensitivity_x: float = 15.0
+## Controls sensitivity Y — lower values mean higher sensitivity.
+@export_range(1.0, 30.0, 0.1) var mouse_look_ahead_sensitivity_y: float = 15.0
 
 @export_group("Limits")
+## Maximum horizontal distance the camera can travel when following the mouse.
 @export_range(1.0, 100.0, 0.1) var mouse_look_ahead_max_distance_x: float = 20.0
-@export_range(1.0, 100.0, 0.1) var mouse_look_ahead_max_distance_y: float = 0.0
+@export_range(1.0, 100.0, 0.1) var mouse_look_ahead_max_distance_y: float = 20.0
 
 
 var screen_center: Vector2 = Vector2.ZERO
@@ -45,8 +50,8 @@ func _ready() -> void:
 	
 	current_zoom = Vector2(initial_zoom, initial_zoom)
 	zoom = Vector2(initial_zoom, initial_zoom)
+	
 	screen_center = get_viewport_rect().size / 2.0
-
 
 func _physics_process(delta: float) -> void:
 	match camera_mode:

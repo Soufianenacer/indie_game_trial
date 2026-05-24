@@ -82,7 +82,6 @@ func _get_free_player() -> AudioStreamPlayer2D:
 # -> AudioManager.stop_all()                         # clear everything
 # -> AudioManager.is_playing("footstep")             # check before re-triggering
 
-
 # ========= public API ========= #
 # stop a specific sound by name (stops first matching player)
 func stop_sound(audio_name: String) -> void:
