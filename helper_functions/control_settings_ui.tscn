@@ -1,0 +1,121 @@
+[gd_scene format=3 uid="uid://cfek6r7oxyjpg"]
+
+[ext_resource type="Script" uid="uid://wwthjshutae7" path="res://helper_functions/control_settings_ui.gd" id="1_xw36h"]
+
+[node name="ControlSettingsUi" type="CanvasLayer" unique_id=1885319361]
+script = ExtResource("1_xw36h")
+
+[node name="ui_helper" type="PanelContainer" parent="." unique_id=1789537574]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -212.0
+offset_right = 212.0
+offset_bottom = 152.0
+grow_horizontal = 2
+focus_behavior_recursive = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="ui_helper" unique_id=1161994352]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ui_helper/MarginContainer" unique_id=1504021941]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ui_helper/MarginContainer/VBoxContainer2" unique_id=1690054258]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="window_mode" type="VBoxContainer" parent="ui_helper/MarginContainer/VBoxContainer2/HBoxContainer" unique_id=601719501]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="ui_helper/MarginContainer/VBoxContainer2/HBoxContainer/window_mode" unique_id=1879515566]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "window_mode"
+
+[node name="OptionButton" type="OptionButton" parent="ui_helper/MarginContainer/VBoxContainer2/HBoxContainer/window_mode" unique_id=86528245]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
+selected = 4
+item_count = 5
+popup/item_0/text = "fullscreen"
+popup/item_0/id = 0
+popup/item_1/text = "windowed"
+popup/item_1/id = 1
+popup/item_2/text = "minimized"
+popup/item_2/id = 2
+popup/item_3/text = "maximized"
+popup/item_3/id = 3
+popup/item_4/text = "exclusive_fullscreen"
+popup/item_4/id = 4
+
+[node name="v_sync" type="VBoxContainer" parent="ui_helper/MarginContainer/VBoxContainer2/HBoxContainer" unique_id=531024692]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="ui_helper/MarginContainer/VBoxContainer2/HBoxContainer/v_sync" unique_id=1263612150]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "V-sync"
+
+[node name="v_sync_btn" type="OptionButton" parent="ui_helper/MarginContainer/VBoxContainer2/HBoxContainer/v_sync" unique_id=266757648]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
+selected = 3
+item_count = 4
+popup/item_0/text = "on"
+popup/item_0/id = 0
+popup/item_1/text = "off"
+popup/item_1/id = 1
+popup/item_2/text = "adaptive"
+popup/item_2/id = 2
+popup/item_3/text = "mailbox"
+popup/item_3/id = 3
+
+[node name="max_fps" type="VBoxContainer" parent="ui_helper/MarginContainer/VBoxContainer2" unique_id=1936340609]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ui_helper/MarginContainer/VBoxContainer2/max_fps" unique_id=603414262]
+layout_mode = 2
+text = "Max FPS 60"
+
+[node name="max_fpx_range" type="HScrollBar" parent="ui_helper/MarginContainer/VBoxContainer2/max_fps" unique_id=436381425]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+min_value = 30.0
+max_value = 144.0
+step = 1.0
+value = 60.0
+rounded = true
+
+[node name="phisics_interpolation" type="HBoxContainer" parent="ui_helper/MarginContainer/VBoxContainer2" unique_id=1020444562]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ui_helper/MarginContainer/VBoxContainer2/phisics_interpolation" unique_id=2127377932]
+layout_mode = 2
+text = "phisics_interpolation"
+
+[node name="CheckBox" type="CheckBox" parent="ui_helper/MarginContainer/VBoxContainer2/phisics_interpolation" unique_id=480152421]
+layout_mode = 2
+button_pressed = true
+
+[connection signal="item_selected" from="ui_helper/MarginContainer/VBoxContainer2/HBoxContainer/window_mode/OptionButton" to="." method="_on_option_button_item_selected"]
+[connection signal="item_selected" from="ui_helper/MarginContainer/VBoxContainer2/HBoxContainer/v_sync/v_sync_btn" to="." method="_on_v_sync_btn_item_selected"]
+[connection signal="value_changed" from="ui_helper/MarginContainer/VBoxContainer2/max_fps/max_fpx_range" to="." method="_on_max_fpx_range_value_changed"]
+[connection signal="pressed" from="ui_helper/MarginContainer/VBoxContainer2/phisics_interpolation/CheckBox" to="." method="_on_check_box_pressed"]

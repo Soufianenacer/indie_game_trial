@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bimq0xy160076" path="res://components/camera/camera.tscn" id="3_h2yge"]
 [ext_resource type="AudioStream" uid="uid://cfrskog7j4p8g" path="res://assets/audio/the_forest_sounds.mp3" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://d2r85jdcjejfs" path="res://environment/map_1/map_1.tscn" id="4_lquwl"]
+[ext_resource type="PackedScene" uid="uid://cfek6r7oxyjpg" path="res://helper_functions/control_settings_ui.tscn" id="6_7mycd"]
 
 [node name="Main" type="Node2D" unique_id=547192661]
 script = ExtResource("1_lquwl")
@@ -26,3 +27,5 @@ offset_left = 28.0
 offset_top = 33.0
 offset_right = 68.0
 offset_bottom = 56.0
+
+[node name="ControlSettingsUi" parent="." unique_id=1885319361 instance=ExtResource("6_7mycd")]
