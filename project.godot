@@ -13,7 +13,6 @@ config_version=5
 config/name="incremental"
 run/main_scene="uid://dd0ub0ucn12ul"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-run/max_fps=144
 config/icon="uid://dn8knte6wrsjn"
 
 [audio]

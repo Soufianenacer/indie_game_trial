@@ -8,8 +8,8 @@ func _input(event: InputEvent) -> void:
 		ui_helper.visible = not ui_helper.visible
 
 const v_sync_dic = {
-	0: DisplayServer.VSYNC_DISABLED,
-	1: DisplayServer.VSYNC_ENABLED,
+	0: DisplayServer.VSYNC_ENABLED,
+	1: DisplayServer.VSYNC_DISABLED,
 	2: DisplayServer.VSYNC_ADAPTIVE,
 	3: DisplayServer.VSYNC_MAILBOX,
 }
@@ -21,9 +21,16 @@ const window_mode_dic = {
 	4: DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN
 }
 
+func _ready():
+	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
+	DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_MAILBOX)
+	Engine.max_fps = 60
+	get_tree().physics_interpolation = true
+
 func _on_max_fpx_range_value_changed(value: int) -> void:
 	max_fps_label.text = "Max FPS " + str(value)
 	Engine.max_fps = value
+	print(Engine.max_fps)
 
 func _on_v_sync_btn_item_selected(index: int) -> void:
 	DisplayServer.window_set_vsync_mode(v_sync_dic[index])
