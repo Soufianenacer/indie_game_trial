@@ -1,0 +1,103 @@
+[gd_scene format=3 uid="uid://lw7xaldyiw08"]
+
+[ext_resource type="Script" uid="uid://bky0ibkeesvg2" path="res://ui/settings/graphics/graphics_settings_ui.gd" id="1_w04j1"]
+[ext_resource type="Script" uid="uid://bxfpasbytpqqq" path="res://ui/settings/graphics/handle_resolution.gd" id="2_6mklu"]
+[ext_resource type="Script" uid="uid://cmsueu5p3y5td" path="res://ui/settings/graphics/v_sync_and_max_fpx.gd" id="3_5q10e"]
+[ext_resource type="Script" uid="uid://dpum3ijpirmwu" path="res://ui/settings/graphics/fxaa_and_reset.gd" id="4_mmics"]
+
+[node name="Graphics_settings_ui" type="VBoxContainer" unique_id=859209913]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 2
+theme_override_constants/separation = 15
+script = ExtResource("1_w04j1")
+
+[node name="screen_mode_and_resolution" type="Node" parent="." unique_id=1198786469]
+script = ExtResource("2_6mklu")
+
+[node name="v_sync_and_max_fpx" type="Node" parent="." unique_id=388104857]
+script = ExtResource("3_5q10e")
+
+[node name="FXAA_and_reset" type="Node" parent="." unique_id=569980892]
+script = ExtResource("4_mmics")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=281614962]
+layout_mode = 2
+
+[node name="LabelFullScreen" type="Label" parent="HBoxContainer" unique_id=2023430014]
+layout_mode = 2
+text = "FullScrreen"
+
+[node name="FullScreenCheckBox" type="CheckBox" parent="HBoxContainer" unique_id=1150720604]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+button_pressed = true
+
+[node name="ResolutionSelector" type="HBoxContainer" parent="." unique_id=1790502495]
+layout_mode = 2
+
+[node name="LabelWindowedResolution" type="Label" parent="ResolutionSelector" unique_id=1347927337]
+layout_mode = 2
+text = "Windowed Resolution"
+
+[node name="OptionButton" type="OptionButton" parent="ResolutionSelector" unique_id=1781946669]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="." unique_id=1199413135]
+layout_mode = 2
+
+[node name="VSync" type="Label" parent="HBoxContainer6" unique_id=291773390]
+layout_mode = 2
+text = "V-Sync"
+
+[node name="VSyncOptionButton" type="OptionButton" parent="HBoxContainer6" unique_id=628838641]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="." unique_id=1524647646]
+layout_mode = 2
+
+[node name="max_fps" type="Label" parent="HBoxContainer7" unique_id=339711089]
+layout_mode = 2
+text = "Max FPS"
+
+[node name="MaxFpsOptionButton" type="OptionButton" parent="HBoxContainer7" unique_id=1748337267]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="HBoxContainer8" type="HBoxContainer" parent="." unique_id=184035616]
+layout_mode = 2
+
+[node name="FXAA" type="Label" parent="HBoxContainer8" unique_id=1409430272]
+layout_mode = 2
+text = "FXAA"
+
+[node name="FXAACheckBox" type="CheckBox" parent="HBoxContainer8" unique_id=2096986078]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="HBoxContainer9" type="HBoxContainer" parent="." unique_id=64602780]
+layout_mode = 2
+
+[node name="reset_graphics" type="Label" parent="HBoxContainer9" unique_id=1641640947]
+layout_mode = 2
+text = "Reset Settings"
+
+[node name="RestButton" type="Button" parent="HBoxContainer9" unique_id=1979463333]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Reset Graphics"
+
+[connection signal="pressed" from="HBoxContainer/FullScreenCheckBox" to="screen_mode_and_resolution" method="_on_full_screen_check_box_pressed"]
+[connection signal="item_selected" from="ResolutionSelector/OptionButton" to="screen_mode_and_resolution" method="_on_option_button_item_selected"]
+[connection signal="item_selected" from="HBoxContainer6/VSyncOptionButton" to="v_sync_and_max_fpx" method="_on_v_sync_option_button_item_selected"]
+[connection signal="pressed" from="HBoxContainer8/FXAACheckBox" to="FXAA_and_reset" method="_on_msaa_check_box_pressed"]
+[connection signal="pressed" from="HBoxContainer9/RestButton" to="FXAA_and_reset" method="_on_rest_button_pressed"]

@@ -11,7 +11,7 @@
 process_callback = 0
 script = ExtResource("1_s8cyt")
 initial_zoom = 1.2
-camera_offset_y = -160.0
+camera_offset_y = -121.10000000000002
 mouse_look_ahead_speed = 9.0
 mouse_look_ahead_sensitivity_x = 30.0
 

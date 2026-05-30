@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="incremental"
-run/main_scene="uid://dd0ub0ucn12ul"
+run/main_scene="uid://c7ls7jndeyrd0"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="uid://dn8knte6wrsjn"
 
@@ -25,7 +25,10 @@ AudioBus="*uid://cjo24rahulahs"
 
 [display]
 
+window/size/viewport_width=1366
+window/size/viewport_height=768
 window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 window/vsync/vsync_mode=3
 
 [file_customization]
@@ -38,7 +41,7 @@ folder_colors={
 "res://global_scripts/": "red",
 "res://helper_functions/": "gray",
 "res://hooks/": "green",
-"res://menu/": "purple"
+"res://ui/": "purple"
 }
 
 [input]

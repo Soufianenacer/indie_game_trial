@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://d1lyj0y8es1vv"]
+
+[ext_resource type="PackedScene" uid="uid://bjdcykokfqq4d" path="res://ui/settings/Settings_ui.tscn" id="2_nkj7q"]
+[ext_resource type="Script" uid="uid://cth3o8vs8rmjr" path="res://ui/main_menu/main_menu_ui_container.gd" id="3_02ked"]
+[ext_resource type="Script" uid="uid://b0ft8ee72heiw" path="res://ui/main_menu/utils.gd" id="3_lnynk"]
+
+[node name="MenuUI" type="Control" unique_id=1567244632]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SettingsUi" parent="." unique_id=1399352869 instance=ExtResource("2_nkj7q")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
+[node name="MainMenuUiContainer" type="VBoxContainer" parent="." unique_id=1491490874]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -159.0
+offset_top = -4.0
+offset_right = 159.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_02ked")
+
+[node name="Play" type="Button" parent="MainMenuUiContainer" unique_id=845943741]
+layout_mode = 2
+text = "Play"
+
+[node name="Settings" type="Button" parent="MainMenuUiContainer" unique_id=587138143]
+layout_mode = 2
+text = "Settings"
+
+[node name="Exit" type="Button" parent="MainMenuUiContainer" unique_id=1761761447]
+layout_mode = 2
+text = "Exit"
+
+[node name="utils" type="Node" parent="." unique_id=466389598]
+unique_name_in_owner = true
+script = ExtResource("3_lnynk")

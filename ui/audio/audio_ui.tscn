@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://ckbqu1360mx60"]
+
+[ext_resource type="Script" uid="uid://c3utxr14l7puu" path="res://ui/audio/audio_ui.gd" id="1_xgjo8"]
+
+[node name="AudioUi" type="VBoxContainer" unique_id=1861183798]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xgjo8")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=216114233]
+layout_mode = 2
+
+[node name="LabelMasterVolume" type="Label" parent="HBoxContainer" unique_id=1054943583]
+layout_mode = 2
+text = "Master Volume"
+
+[node name="Master_for_100" type="Label" parent="HBoxContainer" unique_id=1576423910]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "50%"
+
+[node name="MasterVolumeHScrollBar" type="HScrollBar" parent="HBoxContainer" unique_id=476308732]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+step = 5.0
+value = 50.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="." unique_id=585087535]
+layout_mode = 2
+
+[node name="LabelSFXVolume" type="Label" parent="HBoxContainer2" unique_id=1266119963]
+layout_mode = 2
+text = "Master Volume"
+
+[node name="SFX_for_100" type="Label" parent="HBoxContainer2" unique_id=58562864]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "50%"
+
+[node name="SFXVolumeHScrollBar" type="HScrollBar" parent="HBoxContainer2" unique_id=37602663]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+step = 5.0
+value = 50.0
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="." unique_id=365645164]
+layout_mode = 2
+
+[node name="LabelAmbienceVolume" type="Label" parent="HBoxContainer3" unique_id=686069247]
+layout_mode = 2
+text = "Master Volume"
+
+[node name="Ambience_for_100" type="Label" parent="HBoxContainer3" unique_id=1137827938]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "50%"
+
+[node name="AmbienceVolumeHScrollBar" type="HScrollBar" parent="HBoxContainer3" unique_id=280092597]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+step = 5.0
+value = 50.0
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="." unique_id=1661979148]
+layout_mode = 2
+
+[node name="LabelMuteInBackground" type="Label" parent="HBoxContainer4" unique_id=845652110]
+layout_mode = 2
+text = "Mute in Background"
+
+[node name="MuteInBackgroundCheckBox" type="CheckBox" parent="HBoxContainer4" unique_id=68328108]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[connection signal="value_changed" from="HBoxContainer/MasterVolumeHScrollBar" to="." method="_on_master_volume_h_scroll_bar_value_changed"]
+[connection signal="value_changed" from="HBoxContainer2/SFXVolumeHScrollBar" to="." method="_on_sfx_volume_h_scroll_bar_value_changed"]
+[connection signal="value_changed" from="HBoxContainer3/AmbienceVolumeHScrollBar" to="." method="_on_ambience_volume_h_scroll_bar_value_changed"]
+[connection signal="pressed" from="HBoxContainer4/MuteInBackgroundCheckBox" to="." method="_on_mute_in_background_check_box_pressed"]

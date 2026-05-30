@@ -19,6 +19,7 @@ stream = ExtResource("4_1bvp3")
 position = Vector2(1070, -517)
 
 [node name="Camera" parent="." unique_id=404260496 instance=ExtResource("3_h2yge")]
+position_smoothing_enabled = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=876113423]
 

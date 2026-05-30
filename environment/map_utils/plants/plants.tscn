@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bpjehsx67v3cw"]
 
-[ext_resource type="Script" uid="uid://dwqbrtf8f58kr" path="res://environment/map_utils/ground/plants.gd" id="1_i5qgm"]
+[ext_resource type="Script" uid="uid://dwqbrtf8f58kr" path="res://environment/map_utils/plants/plants.gd" id="1_i5qgm"]
 [ext_resource type="Texture2D" uid="uid://bp11p6xbivbth" path="res://assets/Texture/TX Village Props.png" id="1_lqmqt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lqmqt"]
