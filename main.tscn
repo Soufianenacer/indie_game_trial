@@ -55,4 +55,3 @@ script = ExtResource("6_272bh")
 resource_display_scene = ExtResource("7_5vw27")
 
 [node name="ControlSettingsUi" parent="." unique_id=1885319361 instance=ExtResource("6_7mycd")]
-visible = false
