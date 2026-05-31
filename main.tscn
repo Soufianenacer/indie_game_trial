@@ -31,6 +31,8 @@ offset_top = 33.0
 offset_right = 68.0
 offset_bottom = 56.0
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
 [node name="ResourceUI" type="Control" parent="CanvasLayer" unique_id=87678681]
 layout_mode = 3
 anchors_preset = 1
@@ -54,4 +56,3 @@ alignment = 1
 script = ExtResource("6_272bh")
 resource_display_scene = ExtResource("7_5vw27")
 
-[node name="ControlSettingsUi" parent="." unique_id=1885319361 instance=ExtResource("6_7mycd")]
