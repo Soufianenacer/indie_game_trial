@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cbdak3the8md6"]
+
+[ext_resource type="Script" uid="uid://cjk2vxmg6eqfh" path="res://environment/map_utils/clickable/clickable.gd" id="1_cayq5"]
+
+[node name="Clickable" type="Area2D" unique_id=2082525229]
+script = ExtResource("1_cayq5")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://ch243b74eptxi"]
+
+[ext_resource type="Texture2D" uid="uid://bp11p6xbivbth" path="res://assets/Texture/TX Village Props.png" id="1_63xwk"]
+[ext_resource type="PackedScene" uid="uid://cbdak3the8md6" path="res://environment/map_utils/clickable/Clickable.tscn" id="2_ax8p6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c1rbs"]
+radius = 132.0
+
+[node name="BigRock" type="Node2D" unique_id=1771285729]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=588979130]
+scale = Vector2(2.15625, 2.15625)
+texture = ExtResource("1_63xwk")
+region_enabled = true
+region_rect = Rect2(864, 352, 64, 32)
+
+[node name="Clickable" parent="." unique_id=2082525229 instance=ExtResource("2_ax8p6")]
+resource_name = "stone"
+resource_amount = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Clickable" unique_id=1226899489]
+shape = SubResource("CircleShape2D_c1rbs")
