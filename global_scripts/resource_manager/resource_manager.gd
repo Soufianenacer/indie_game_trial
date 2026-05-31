@@ -2,6 +2,7 @@ extends Node
 
 var resources: Dictionary = {}
 
+
 signal resource_changed(resource_name: String, new_amount: int)
 
 func add_resource(resource_name: String, amount: int) -> void:

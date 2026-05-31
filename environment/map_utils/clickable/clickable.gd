@@ -11,9 +11,8 @@ func _ready() -> void:
 	input_pickable = true
 
 func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			_on_clicked()
+	if event.is_action_pressed("left_click"):
+		_on_clicked()
 
 func _on_clicked() -> void:
 	current_clicks += 1

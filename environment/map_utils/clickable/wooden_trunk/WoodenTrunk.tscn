@@ -15,8 +15,9 @@ region_enabled = true
 region_rect = Rect2(800, 160, 32, 32)
 
 [node name="Clickable" parent="." unique_id=2082525229 instance=ExtResource("2_deim2")]
+resource_name = "NG"
 clicks_required = 2
-resource_amount = 20
+resource_amount = 17
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Clickable" unique_id=279179013]
 shape = SubResource("CircleShape2D_ijykv")
