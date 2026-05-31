@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://db7hv3r5ym8ue"]
+
+[ext_resource type="Script" uid="uid://csl27j5u1yv6y" path="res://ui/resource_display/resource_display.gd" id="1_rsp3p"]
+
+[node name="ResourceDisplay" type="PanelContainer" unique_id=148980641]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rsp3p")
+
+[node name="Label" type="Label" parent="." unique_id=1662107058]
+layout_mode = 2

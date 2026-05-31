@@ -6,6 +6,8 @@
 [ext_resource type="AudioStream" uid="uid://cfrskog7j4p8g" path="res://assets/audio/the_forest_sounds.mp3" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://d2r85jdcjejfs" path="res://environment/map_1/map_1.tscn" id="4_lquwl"]
 [ext_resource type="PackedScene" uid="uid://cfek6r7oxyjpg" path="res://helper_functions/control_settings_ui.tscn" id="6_7mycd"]
+[ext_resource type="Script" uid="uid://bvso5oks0ii4u" path="res://ui/resource_display/resource_display_manager.gd" id="6_272bh"]
+[ext_resource type="PackedScene" uid="uid://db7hv3r5ym8ue" path="res://ui/resource_display/ResourceDisplay.tscn" id="7_5vw27"]
 
 [node name="Main" type="Node2D" unique_id=547192661]
 script = ExtResource("1_lquwl")
@@ -29,22 +31,28 @@ offset_top = 33.0
 offset_right = 68.0
 offset_bottom = 56.0
 
-[node name="Control" type="Control" parent="CanvasLayer" unique_id=87678681]
+[node name="ResourceUI" type="Control" parent="CanvasLayer" unique_id=87678681]
 layout_mode = 3
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -479.0
-offset_bottom = 124.0
+offset_left = -444.0
+offset_bottom = 61.0
 grow_horizontal = 0
 
-[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control" unique_id=1106484900]
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/ResourceUI" unique_id=1106484900]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/ResourceUI/PanelContainer" unique_id=712507900]
+layout_mode = 2
+alignment = 1
+script = ExtResource("6_272bh")
+resource_display_scene = ExtResource("7_5vw27")
 
 [node name="ControlSettingsUi" parent="." unique_id=1885319361 instance=ExtResource("6_7mycd")]
 visible = false
