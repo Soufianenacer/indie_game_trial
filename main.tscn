@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://vfk6y2okfcwh"]
 
-[ext_resource type="Script" uid="uid://bri3yb7bwcd2h" path="res://main.gd" id="1_lquwl"]
+[ext_resource type="Script" path="res://main.gd" id="1_lquwl"]
 [ext_resource type="PackedScene" uid="uid://biuxhww2rvkxf" path="res://characters/player/player.tscn" id="2_h2yge"]
 [ext_resource type="PackedScene" uid="uid://bimq0xy160076" path="res://components/camera/camera.tscn" id="3_h2yge"]
 [ext_resource type="AudioStream" uid="uid://cfrskog7j4p8g" path="res://assets/audio/the_forest_sounds.mp3" id="4_1bvp3"]
@@ -29,4 +29,22 @@ offset_top = 33.0
 offset_right = 68.0
 offset_bottom = 56.0
 
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=87678681]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -479.0
+offset_bottom = 124.0
+grow_horizontal = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control" unique_id=1106484900]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="ControlSettingsUi" parent="." unique_id=1885319361 instance=ExtResource("6_7mycd")]
+visible = false

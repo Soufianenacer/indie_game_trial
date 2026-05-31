@@ -22,6 +22,7 @@ buses/default_bus_layout="uid://bs7jftva547eu"
 [autoload]
 
 AudioBus="*uid://cjo24rahulahs"
+ResourceManager="*uid://ddoeis1i645wq"
 
 [display]
 
@@ -90,5 +91,6 @@ common/physics_interpolation=true
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"

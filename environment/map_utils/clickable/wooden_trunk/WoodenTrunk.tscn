@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://ma1swmvw20ea"]
+
+[ext_resource type="Texture2D" uid="uid://bp11p6xbivbth" path="res://assets/Texture/TX Village Props.png" id="1_q0gu5"]
+[ext_resource type="PackedScene" uid="uid://cbdak3the8md6" path="res://environment/map_utils/clickable/Clickable.tscn" id="2_deim2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ijykv"]
+radius = 96.332756
+
+[node name="WoodenTrunk" type="Node2D" unique_id=1006282423]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1410120077]
+scale = Vector2(2.0000002, 2.0000002)
+texture = ExtResource("1_q0gu5")
+region_enabled = true
+region_rect = Rect2(800, 160, 32, 32)
+
+[node name="Clickable" parent="." unique_id=2082525229 instance=ExtResource("2_deim2")]
+clicks_required = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Clickable" unique_id=279179013]
+shape = SubResource("CircleShape2D_ijykv")
