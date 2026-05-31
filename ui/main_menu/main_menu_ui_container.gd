@@ -13,7 +13,7 @@ func _ready() -> void:
 	exit.connect("pressed", _on_exit_pressed)
 
 func _on_play_pressed():
-	print("play")
+	get_tree().change_scene_to_file("res://main.tscn")
 
 func _on_settings_pressed():
 	utils.menu_toggle_settings()

@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var fps: Label = $CanvasLayer/FPS
+@onready var fps: Label = $InGameMenu/FPS
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

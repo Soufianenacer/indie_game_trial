@@ -17,14 +17,6 @@ script = ExtResource("1_eao1i")
 [node name="settings_utils" type="Node" parent="." unique_id=1517115955]
 script = ExtResource("2_ddax3")
 
-[node name="go_back_to_menu_btn" type="Button" parent="." unique_id=1297034099]
-layout_mode = 0
-offset_left = 909.0
-offset_top = 113.0
-offset_right = 997.0
-offset_bottom = 144.0
-text = "< Go Back"
-
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=329253133]
 layout_mode = 1
 anchors_preset = 8
@@ -112,7 +104,6 @@ layout_mode = 2
 size_flags_vertical = 0
 text = "Inputs"
 
-[connection signal="pressed" from="go_back_to_menu_btn" to="." method="_on_go_back_to_menu_btn_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/General" to="." method="_on_general_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Graphics" to="." method="_on_graphics_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Audio" to="." method="_on_audio_pressed"]

@@ -46,6 +46,7 @@ text = "Windowed Resolution"
 
 [node name="OptionButton" type="OptionButton" parent="ResolutionSelector" unique_id=1781946669]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 10
 
@@ -58,6 +59,7 @@ text = "V-Sync"
 
 [node name="VSyncOptionButton" type="OptionButton" parent="HBoxContainer6" unique_id=628838641]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 10
 
@@ -70,6 +72,7 @@ text = "Max FPS"
 
 [node name="MaxFpsOptionButton" type="OptionButton" parent="HBoxContainer7" unique_id=1748337267]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 10
 

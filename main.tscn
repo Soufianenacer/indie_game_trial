@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bimq0xy160076" path="res://components/camera/camera.tscn" id="3_h2yge"]
 [ext_resource type="AudioStream" uid="uid://cfrskog7j4p8g" path="res://assets/audio/the_forest_sounds.mp3" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://d2r85jdcjejfs" path="res://environment/map_1/map_1.tscn" id="4_lquwl"]
-[ext_resource type="PackedScene" uid="uid://cfek6r7oxyjpg" path="res://helper_functions/control_settings_ui.tscn" id="6_7mycd"]
+[ext_resource type="PackedScene" uid="uid://ckood1dquw1vk" path="res://ui/in_game_menu/in_game_menu.tscn" id="8_5vw27"]
 
 [node name="Main" type="Node2D" unique_id=547192661]
 script = ExtResource("1_lquwl")
@@ -21,12 +21,10 @@ position = Vector2(1070, -517)
 [node name="Camera" parent="." unique_id=404260496 instance=ExtResource("3_h2yge")]
 position_smoothing_enabled = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=876113423]
+[node name="InGameMenu" parent="." unique_id=953616469 instance=ExtResource("8_5vw27")]
 
-[node name="FPS" type="Label" parent="CanvasLayer" unique_id=1906973026]
+[node name="FPS" type="Label" parent="InGameMenu" unique_id=1906973026]
 offset_left = 28.0
 offset_top = 33.0
 offset_right = 68.0
 offset_bottom = 56.0
-
-[node name="ControlSettingsUi" parent="." unique_id=1885319361 instance=ExtResource("6_7mycd")]
