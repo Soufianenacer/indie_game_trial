@@ -1,53 +1,47 @@
 extends Node
+# This script goes on your settings menu/panel
+# It connects all the UI buttons to the GameSettings singleton
 
-@onready var full_screen_check_box: CheckBox = %FullScreenCheckBox
-@onready var option_button: OptionButton = %OptionButton
+# ============= NODE REFERENCES =============
 
-const DEFAULT_RESOLUTION_INDEX = 2
-const RESOLUTIONS = {
-	0: Vector2i(1280, 720),
-	1: Vector2i(1366, 768),
-	2: Vector2i(1920, 1080),
-	3: Vector2i(2560, 1440),
-}
-const FULLSCREEN_MODE : Dictionary = {
-	true: DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN,
-	false: DisplayServer.WINDOW_MODE_WINDOWED
-}
-var current_resolution_index: int = DEFAULT_RESOLUTION_INDEX
+@onready var window_resolution_option_button: OptionButton = %windowResolutionOptionButton
+@onready var full_screen_mode_option_button: OptionButton = %FullScreenModeOptionButton
+#@onready var full_screen_check_box: CheckBox = %FullScreenCheckBox
 
+# ============= READY =============
 func _ready() -> void:
-	option_button.clear()
-	current_resolution_index = DEFAULT_RESOLUTION_INDEX
-	for i in RESOLUTIONS:
-		var res = RESOLUTIONS[i]
-		option_button.add_item("%d x %d" % [res.x, res.y], i)
+	# Setup all the option buttons with their values
+	_setup_resolution_options()
+	_setup_screen_mode_options()
 	
-	var user_res = DisplayServer.screen_get_size()
-	for i in RESOLUTIONS:
-		if RESOLUTIONS[i] == user_res:
-			current_resolution_index = i
-			break
+	# Connect signals so UI responds when settings change
+	window_resolution_option_button.item_selected.connect(_on_resolution_changed)
+	full_screen_mode_option_button.item_selected.connect(_on_screen_mode_changed)
+
+
+func _setup_resolution_options() -> void:
+	window_resolution_option_button.clear()
+	# Loop through RESOLUTION_LABELS in GameSettings
+	# This shows "1920 x 1080", "1280 x 720", etc.
+	for preset in GameSettings.RESOLUTION_LABELS:
+		var label = GameSettings.RESOLUTION_LABELS[preset]
+		window_resolution_option_button.add_item(label, preset)
+
+func _setup_screen_mode_options() -> void:
+	full_screen_mode_option_button.clear()
+	# Loop through SCREEN_MODE_LABELS in GameSettings
+	# This shows "Fullscreen", "Borderless", "Windowed"
+	for mode in GameSettings.SCREEN_MODE_LABELS:
+		var label = GameSettings.SCREEN_MODE_LABELS[mode]
+		full_screen_mode_option_button.add_item(label, mode)
 	
-	option_button.select(current_resolution_index)
-	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
-	full_screen_check_box.button_pressed = true
-	option_button.disabled = true
 
-func _apply_resolution(index: int) -> void:
-	var res = RESOLUTIONS[index]
-	DisplayServer.window_set_size(res)
-	await get_tree().process_frame
-	var screen = DisplayServer.screen_get_size()
-	DisplayServer.window_set_position((screen - res) / 2)
-	current_resolution_index = index
+func _on_resolution_changed(_index: int) -> void:
+	var selected_preset = window_resolution_option_button.get_selected_id()
+	GameSettings.set_resolution(selected_preset)
 
-func _on_full_screen_check_box_pressed() -> void:
-	var is_fullscreen: bool = full_screen_check_box.button_pressed
-	option_button.disabled = is_fullscreen
-	DisplayServer.window_set_mode(FULLSCREEN_MODE[is_fullscreen])
-	if not is_fullscreen:
-		_apply_resolution(current_resolution_index)
-
-func _on_option_button_item_selected(index: int) -> void:
-	_apply_resolution(index)
+func _on_screen_mode_changed(_index: int) -> void:
+	var selected_mode = full_screen_mode_option_button.get_selected_id()
+	GameSettings.set_screen_mode(selected_mode)
+	# Disable resolution option if not in windowed mode
+	window_resolution_option_button.disabled = selected_mode == 0

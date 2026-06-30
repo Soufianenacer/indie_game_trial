@@ -3,43 +3,39 @@ extends Node
 @onready var v_sync_option_button: OptionButton = %VSyncOptionButton
 @onready var max_fps_option_button: OptionButton = %MaxFpsOptionButton
 
-const VSYNC_MODES = {
-	0: DisplayServer.VSYNC_DISABLED,
-	1: DisplayServer.VSYNC_ENABLED,
-	2: DisplayServer.VSYNC_ADAPTIVE,
-	3: DisplayServer.VSYNC_MAILBOX,
-}
 
-const MAX_FPS = {
-	0: 0,   # unlimited
-	1: 30,
-	2: 60,
-	3: 120,
-	4: 144,
-	5: 240,
-}
+
 
 func _ready() -> void:
-	v_sync_option_button.clear()
-	v_sync_option_button.add_item("Disabled", 0)
-	v_sync_option_button.add_item("Enabled", 1)
-	v_sync_option_button.add_item("Adaptive", 2)
-	v_sync_option_button.add_item("Mailbox", 3)
-	v_sync_option_button.select(3) # default Mailbox
-	DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_MAILBOX)
+	_setup_vsync_options()
+	_setup_max_fps_options()
 	
+	
+	v_sync_option_button.item_selected.connect(_on_vsync_changed)
+	max_fps_option_button.item_selected.connect(_on_max_fps_changed)
+
+func _setup_vsync_options() -> void:
+	v_sync_option_button.clear()
+	# Loop through the VSYNC_DIC dictionary in GameSettings
+	for label: String in GameSettings.VSYNC_DIC.keys():
+		var vsync_enum_value = GameSettings.VSYNC_DIC[label]
+		v_sync_option_button.add_item(label, vsync_enum_value)
+
+func _setup_max_fps_options() -> void:
 	max_fps_option_button.clear()
-	max_fps_option_button.add_item("Unlimited", 0)
-	max_fps_option_button.add_item("30", 1)
-	max_fps_option_button.add_item("60", 2)
-	max_fps_option_button.add_item("120", 3)
-	max_fps_option_button.add_item("144", 4)
-	max_fps_option_button.add_item("240", 5)
-	max_fps_option_button.select(2) # default 60
-	Engine.max_fps = 60
+	# Loop through the MAX_FPS_DIC dictionary in GameSettings
+	for label: String in GameSettings.MAX_FPS_DIC.keys():
+		var fps_enum_value = GameSettings.MAX_FPS_DIC[label]
+		max_fps_option_button.add_item(label, fps_enum_value)
 
-func _on_v_sync_option_button_item_selected(index: int) -> void:
-	DisplayServer.window_set_vsync_mode(VSYNC_MODES[index])
+func _on_vsync_changed(_index: int) -> void:
+	var selected_mode = v_sync_option_button.get_selected_id()
+	GameSettings.set_vsync(selected_mode)
 
-func _on_max_fps_option_button_item_selected(index: int) -> void:
-	Engine.max_fps = MAX_FPS[index]
+func _on_max_fps_changed(_index: int) -> void:
+	var selected_fps = max_fps_option_button.get_selected_id()
+	GameSettings.set_max_fps(selected_fps)
+
+
+
+	

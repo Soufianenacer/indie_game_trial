@@ -23,6 +23,7 @@ buses/default_bus_layout="uid://bs7jftva547eu"
 
 AudioBus="*uid://cjo24rahulahs"
 ResourceManager="*uid://ddoeis1i645wq"
+GameSettings="*uid://bh6j4pu5mwx4d"
 
 [display]
 

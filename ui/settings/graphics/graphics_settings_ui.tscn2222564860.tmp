@@ -19,7 +19,7 @@ script = ExtResource("2_6mklu")
 [node name="v_sync_and_max_fpx" type="Node" parent="." unique_id=388104857]
 script = ExtResource("3_5q10e")
 
-[node name="ui_update_and_reset" type="Node" parent="." unique_id=569980892]
+[node name="FXAA_and_reset" type="Node" parent="." unique_id=569980892]
 script = ExtResource("4_mmics")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=281614962]
@@ -31,9 +31,7 @@ text = "FullScrreen"
 
 [node name="FullScreenModeOptionButton" type="OptionButton" parent="HBoxContainer" unique_id=1435648797]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
-size_flags_horizontal = 10
 
 [node name="ResolutionSelector" type="HBoxContainer" parent="." unique_id=1790502495]
 layout_mode = 2
@@ -75,6 +73,17 @@ custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 10
 
+[node name="HBoxContainer8" type="HBoxContainer" parent="." unique_id=184035616]
+layout_mode = 2
+
+[node name="FXAA" type="Label" parent="HBoxContainer8" unique_id=1409430272]
+layout_mode = 2
+text = "FXAA"
+
+[node name="FXAACheckBox" type="CheckBox" parent="HBoxContainer8" unique_id=2096986078]
+layout_mode = 2
+size_flags_horizontal = 10
+
 [node name="HBoxContainer9" type="HBoxContainer" parent="." unique_id=64602780]
 layout_mode = 2
 
@@ -83,9 +92,8 @@ layout_mode = 2
 text = "Reset Settings"
 
 [node name="RestButton" type="Button" parent="HBoxContainer9" unique_id=1979463333]
-custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 10
 text = "Reset Graphics"
 
-[connection signal="pressed" from="HBoxContainer9/RestButton" to="ui_update_and_reset" method="_on_rest_button_pressed"]
+[connection signal="pressed" from="HBoxContainer9/RestButton" to="FXAA_and_reset" method="_on_rest_button_pressed"]
