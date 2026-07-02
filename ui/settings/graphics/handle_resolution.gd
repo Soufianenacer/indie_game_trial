@@ -38,6 +38,7 @@ func _setup_screen_mode_options() -> void:
 
 func _on_resolution_changed(_index: int) -> void:
 	var selected_preset = window_resolution_option_button.get_selected_id()
+	
 	GameSettings.set_resolution(selected_preset)
 
 func _on_screen_mode_changed(_index: int) -> void:

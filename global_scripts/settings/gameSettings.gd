@@ -1,6 +1,16 @@
 # autoload/GameSettings.gd
 extends Node
 
+# =============================================
+# ============= GENERAL SETTINGS =============
+# =============================================
+
+# general settings functions
+
+# =============================================
+# ============= GRAPHICS SETTINGS =============
+# =============================================
+
 # ============= ENUMS =============
 enum VSyncMode {
 	DISABLED = 0,
@@ -74,17 +84,29 @@ const MAX_FPS_DIC = {
 	"240": MaxFPS.FPS_240,
 }
 
-const FPS_VALUES = [0, 30, 60, 120, 144, 240]
+const FPS_VALUES = {
+	MaxFPS.UNLIMITED: 0,
+	MaxFPS.FPS_30: 30,
+	MaxFPS.FPS_60: 60,
+	MaxFPS.FPS_120: 120,
+	MaxFPS.FPS_144: 144,
+	MaxFPS.FPS_240: 240,
+}
+
+const FPS_LABELS = {
+	MaxFPS.UNLIMITED: "Unlimited",
+	MaxFPS.FPS_30: "30",
+	MaxFPS.FPS_60: "60",
+	MaxFPS.FPS_120: "120",
+	MaxFPS.FPS_144: "144",
+	MaxFPS.FPS_240: "240",
+}
 
 # ============= VIDEO SETTINGS =============
 var vsync_mode: int = VSyncMode.MAILBOX
-var max_fps: int = 60
+var max_fps: int = MaxFPS.FPS_60
 var resolution_preset: int = ResolutionPreset.RES_1920_1080
-var screen_mode: int = ScreenModePreset.EXCLUSIVE_FULLSCREEN
-var is_fullscreen: bool = true
-
-# ============= SIGNALS =============
-signal settings_changed(setting_name: String, value)
+var screen_mode: int = ScreenModePreset.WINDOWED
 
 # ============= LIFECYCLE =============
 func _ready() -> void:
@@ -98,17 +120,19 @@ func apply_all_settings() -> void:
 
 func apply_video_settings() -> void:
 	DisplayServer.window_set_vsync_mode(vsync_mode)
-	Engine.max_fps = max_fps
+
+	if max_fps in FPS_VALUES:
+		Engine.max_fps = FPS_VALUES[max_fps]
 
 func apply_window_settings() -> void:
 	DisplayServer.window_set_mode(SCREEN_MODE_VALUES[screen_mode])
-	if resolution_preset in RESOLUTION_VALUES:
+	if RESOLUTION_VALUES.has(resolution_preset):
 		_apply_resolution(resolution_preset)
 
 func _apply_resolution(preset: int) -> void:
 	var res = RESOLUTION_VALUES[preset]
 	DisplayServer.window_set_size(res)
-	await get_tree().process_frame
+	#await get_tree().process_frame
 	var screen = DisplayServer.screen_get_size()
 	DisplayServer.window_set_position((screen - res) / 2)
 
@@ -116,34 +140,25 @@ func _apply_resolution(preset: int) -> void:
 func set_vsync(mode: int) -> void:
 	vsync_mode = mode
 	DisplayServer.window_set_vsync_mode(vsync_mode)
-	settings_changed.emit("vsync", vsync_mode)
 	save_settings()
 
-func set_max_fps(fps_index: int) -> void:
-	if fps_index < FPS_VALUES.size():
-		max_fps = FPS_VALUES[fps_index]
-		Engine.max_fps = max_fps
-		settings_changed.emit("max_fps", max_fps)
+func set_max_fps(preset: int) -> void:
+	if preset in FPS_VALUES:
+		max_fps = preset
+		Engine.max_fps = FPS_VALUES[preset]
 		save_settings()
 
 func set_resolution(preset: int) -> void:
 	if preset in RESOLUTION_VALUES:
 		resolution_preset = preset
 		_apply_resolution(preset)
-		settings_changed.emit("resolution", RESOLUTION_VALUES[preset])
 		save_settings()
 
 func set_screen_mode(mode: int) -> void:
 	if mode in SCREEN_MODE_VALUES:
 		screen_mode = mode
 		DisplayServer.window_set_mode(SCREEN_MODE_VALUES[mode])
-		settings_changed.emit("screen_mode", mode)
 		save_settings()
-
-func set_fullscreen(enabled: bool) -> void:
-	is_fullscreen = enabled
-	settings_changed.emit("fullscreen", is_fullscreen)
-	save_settings()
 
 # ============= SAVE/LOAD =============
 func save_settings() -> void:
@@ -152,31 +167,28 @@ func save_settings() -> void:
 	config.set_value("video", "max_fps", max_fps)
 	config.set_value("video", "resolution_preset", resolution_preset)
 	config.set_value("video", "screen_mode", screen_mode)
-	config.set_value("video", "is_fullscreen", is_fullscreen)
 	config.save("user://settings.cfg")
 
 func load_settings() -> void:
 	var config = ConfigFile.new()
 	if config.load("user://settings.cfg") == OK:
 		vsync_mode = config.get_value("video", "vsync_mode", VSyncMode.MAILBOX)
-		max_fps = config.get_value("video", "max_fps", 60)
+		max_fps = config.get_value("video", "max_fps", MaxFPS.FPS_60)
 		resolution_preset = config.get_value("video", "resolution_preset", ResolutionPreset.RES_1920_1080)
 		screen_mode = config.get_value("video", "screen_mode", ScreenModePreset.EXCLUSIVE_FULLSCREEN)
-		is_fullscreen = config.get_value("video", "is_fullscreen", true)
 	else:
 		# Set defaults if config doesn't exist
 		vsync_mode = VSyncMode.MAILBOX
-		max_fps = 60
+		max_fps = MaxFPS.FPS_60
 		resolution_preset = ResolutionPreset.RES_1920_1080
 		screen_mode = ScreenModePreset.EXCLUSIVE_FULLSCREEN
-		is_fullscreen = true
 
 # ============= RESET TO DEFAULTS =============
 func reset_to_defaults() -> void:
 	vsync_mode = VSyncMode.MAILBOX
-	max_fps = 60
+	max_fps = MaxFPS.FPS_60
 	resolution_preset = ResolutionPreset.RES_1920_1080
-	screen_mode = ScreenModePreset.EXCLUSIVE_FULLSCREEN
-	is_fullscreen = true
+	screen_mode = ScreenModePreset.WINDOWED
+	
 	apply_all_settings()
 	save_settings()

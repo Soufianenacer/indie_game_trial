@@ -62,7 +62,6 @@ layout_mode = 2
 size_flags_horizontal = 10
 
 [node name="HBoxContainer7" type="HBoxContainer" parent="." unique_id=1524647646]
-visible = false
 layout_mode = 2
 
 [node name="max_fps" type="Label" parent="HBoxContainer7" unique_id=339711089]
@@ -83,9 +82,8 @@ layout_mode = 2
 text = "Reset Settings"
 
 [node name="RestButton" type="Button" parent="HBoxContainer9" unique_id=1979463333]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 10
 text = "Reset Graphics"
-
-[connection signal="pressed" from="HBoxContainer9/RestButton" to="ui_update_and_reset" method="_on_rest_button_pressed"]
