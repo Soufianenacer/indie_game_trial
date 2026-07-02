@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bn6ltebl0enfo" path="res://ui/settings/settings_ui.gd" id="1_eao1i"]
 [ext_resource type="PackedScene" uid="uid://lw7xaldyiw08" path="res://ui/settings/graphics/graphics_settings_ui.tscn" id="2_bvm4t"]
 [ext_resource type="Script" uid="uid://c375gsijbb2ug" path="res://ui/settings/settings_utils.gd" id="2_ddax3"]
-[ext_resource type="PackedScene" uid="uid://ckbqu1360mx60" path="res://ui/audio/audio_ui.tscn" id="4_f6w2h"]
+[ext_resource type="PackedScene" uid="uid://ckbqu1360mx60" path="res://ui/settings/audio/audio_ui.tscn" id="4_f6w2h"]
 
 [node name="SettingsUi" type="Control" unique_id=1399352869]
 layout_mode = 3

@@ -4,12 +4,12 @@ class_name Player
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 var direction: float = 0.0
-var attack_range: float = 200.0
+var harvest_range: float = 200.0
+var default_index: int = 100
 
 func _ready() -> void:
 	add_to_group("player")
-
-
+	z_index = default_index
 
 
 func _physics_process(delta: float) -> void:
@@ -41,19 +41,9 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
-
-
-
 func _get_first_in_group(group_name: String) -> Node:
 	return get_tree().get_first_node_in_group(group_name)
 
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("left_click"):
-		var mouse_pos = get_global_mouse_position()
-		var distance = global_position.distance_to(mouse_pos)
-		if distance <= attack_range:
-			print("Click")
-
 func _draw() -> void:
-	draw_circle(Vector2.ZERO, attack_range, Color(0.0, 0.0, 0.0, 0.196))
+	draw_circle(Vector2.ZERO, harvest_range, Color(0.0, 0.0, 0.0, 0.196))
 	

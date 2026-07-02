@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ckbqu1360mx60"]
 
-[ext_resource type="Script" uid="uid://c3utxr14l7puu" path="res://ui/audio/audio_ui.gd" id="1_xgjo8"]
+[ext_resource type="Script" uid="uid://c3utxr14l7puu" path="res://ui/settings/audio/audio_ui.gd" id="1_xgjo8"]
 
 [node name="AudioUi" type="VBoxContainer" unique_id=1861183798]
 anchors_preset = 15

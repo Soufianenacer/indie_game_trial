@@ -120,7 +120,6 @@ func apply_all_settings() -> void:
 
 func apply_video_settings() -> void:
 	DisplayServer.window_set_vsync_mode(vsync_mode)
-
 	if max_fps in FPS_VALUES:
 		Engine.max_fps = FPS_VALUES[max_fps]
 
@@ -132,7 +131,6 @@ func apply_window_settings() -> void:
 func _apply_resolution(preset: int) -> void:
 	var res = RESOLUTION_VALUES[preset]
 	DisplayServer.window_set_size(res)
-	#await get_tree().process_frame
 	var screen = DisplayServer.screen_get_size()
 	DisplayServer.window_set_position((screen - res) / 2)
 

@@ -41,7 +41,6 @@ folder_colors={
 "res://components/": "teal",
 "res://environment/": "pink",
 "res://global_scripts/": "red",
-"res://helper_functions/": "gray",
 "res://hooks/": "green",
 "res://ui/": "purple"
 }

@@ -4,11 +4,11 @@ extends Node
 
 # ========= audio resource oath ========= #
 const default_resource_state_path: String = \
-"res://global_scripts/resources/audio_res.tres"
+"res://global_scripts/audio/audio_res.tres"
 
 # ========= preload ========= #
 const audioPaths = \
-preload("res://global_scripts/resources/audio_paths.gd")
+preload("res://global_scripts/audio/audio_paths.gd")
 var audio_paths = audioPaths.new()
 
 # ========= local variables ========= #
