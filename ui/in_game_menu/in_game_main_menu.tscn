@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ckood1dquw1vk"]
 
-[ext_resource type="Script" uid="uid://cijik24dv7jy" path="res://ui/in_game_menu/in_game_menu.gd" id="1_wef4k"]
+[ext_resource type="Script" uid="uid://cijik24dv7jy" path="res://ui/in_game_menu/in_game_main_menu.gd" id="1_wef4k"]
 [ext_resource type="PackedScene" uid="uid://bjdcykokfqq4d" path="res://ui/settings/Settings_ui.tscn" id="2_xfjdh"]
 
 [node name="InGameMenu" type="CanvasLayer" unique_id=953616469]

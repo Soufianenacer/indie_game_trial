@@ -6,6 +6,16 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_5dc8e"]
 radius = 23.0
 
+[sub_resource type="Gradient" id="Gradient_xxgcw"]
+offsets = PackedFloat32Array(0, 0.1, 0.7)
+colors = PackedColorArray(1, 1, 1, 1, 0.81136364, 0.81136364, 0.81136364, 1, 0, 0, 0, 1)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_exd8k"]
+gradient = SubResource("Gradient_xxgcw")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [node name="Player" type="CharacterBody2D" unique_id=2038481813]
 script = ExtResource("1_xxgcw")
 
@@ -15,3 +25,12 @@ texture = ExtResource("2_exd8k")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1611740114]
 shape = SubResource("CircleShape2D_5dc8e")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=570882993]
+energy = 0.5
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
+shadow_filter = 2
+shadow_filter_smooth = 1.0
+texture = SubResource("GradientTexture2D_exd8k")
+texture_scale = 6.35

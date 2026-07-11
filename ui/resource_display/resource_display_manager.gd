@@ -7,14 +7,12 @@ var displays: Dictionary = {}
 
 func _ready() -> void:
 	ResourceManager.resource_changed.connect(_on_resource_changed)
-
+	
 	for resource_name in ResourceManager.resources:
 		_create_display(
 			resource_name,
 			ResourceManager.resources[resource_name]
 		)
-
-
 
 func _on_resource_changed(resource_name: String,new_amount: int) -> void:
 

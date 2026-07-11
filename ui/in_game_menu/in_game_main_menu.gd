@@ -26,7 +26,7 @@ func _on_settings_pressed() -> void:
 
 func _on_main_menu_pressed() -> void:
 	get_tree().paused = false
-	get_tree().change_scene_to_file("res://ui/main_menu/menu_ui.tscn")
+	SceneManager.scene_transition_signal.emit("main_menu")
 
 func _on_save_and_exit_pressed() -> void:
 	get_tree().quit()

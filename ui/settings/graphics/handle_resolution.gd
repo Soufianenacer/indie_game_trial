@@ -23,16 +23,16 @@ func _setup_resolution_options() -> void:
 	window_resolution_option_button.clear()
 	# Loop through RESOLUTION_LABELS in GameSettings
 	# This shows "1920 x 1080", "1280 x 720", etc.
-	for preset in GameSettings.RESOLUTION_LABELS:
-		var label = GameSettings.RESOLUTION_LABELS[preset]
+	for preset in GameSettings.Graphics.RESOLUTION_LABELS:
+		var label = GameSettings.Graphics.RESOLUTION_LABELS[preset]
 		window_resolution_option_button.add_item(label, preset)
 
 func _setup_screen_mode_options() -> void:
 	full_screen_mode_option_button.clear()
 	# Loop through SCREEN_MODE_LABELS in GameSettings
 	# This shows "Fullscreen", "Borderless", "Windowed"
-	for mode in GameSettings.SCREEN_MODE_LABELS:
-		var label = GameSettings.SCREEN_MODE_LABELS[mode]
+	for mode in GameSettings.Graphics.SCREEN_MODE_LABELS:
+		var label = GameSettings.Graphics.SCREEN_MODE_LABELS[mode]
 		full_screen_mode_option_button.add_item(label, mode)
 	
 

@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://doqq04xbq42ne"]
+
+[ext_resource type="Script" uid="uid://ctl4adppx2yo4" path="res://components/scenes_manager/scene_manager.gd" id="1_0hriw"]
+[ext_resource type="Script" uid="uid://dpg1cdcl8f74f" path="res://components/scenes_manager/utils.gd" id="2_2fite"]
+[ext_resource type="Script" uid="uid://pbdfrpr234eg" path="res://components/scenes_manager/scene_paths.gd" id="2_2x2tm"]
+[ext_resource type="PackedScene" uid="uid://cnp4ptlvi4rrn" path="res://environment/day_and_night_cycle/day_and_night_cycle.tscn" id="3_1xkuk"]
+
+[node name="scene_manager" type="Node2D" unique_id=681116514]
+script = ExtResource("1_0hriw")
+
+[node name="utils" type="Node" parent="." unique_id=865455291]
+unique_name_in_owner = true
+script = ExtResource("2_2fite")
+
+[node name="scene_paths" type="Node" parent="." unique_id=428003784]
+unique_name_in_owner = true
+script = ExtResource("2_2x2tm")
+
+[node name="scenes_container" type="Node" parent="." unique_id=1514971347]
+unique_name_in_owner = true
+
+[node name="day_and_night_cycle" parent="." unique_id=2043549724 instance=ExtResource("3_1xkuk")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=572442959]
+
+[node name="transition_rect" type="ColorRect" parent="CanvasLayer" unique_id=1996134702]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)

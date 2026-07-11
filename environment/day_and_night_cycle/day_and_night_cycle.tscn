@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://cnp4ptlvi4rrn"]
+
+[ext_resource type="Script" uid="uid://nsco5cpgtecb" path="res://environment/day_and_night_cycle/day_and_night_cycle.gd" id="1_daqcl"]
+[ext_resource type="Script" uid="uid://bgko4mx28eqcv" path="res://environment/day_and_night_cycle/utils.gd" id="2_01474"]
+[ext_resource type="Script" uid="uid://cfrtsstpph2me" path="res://environment/day_and_night_cycle/sun_and_moon_lighting.gd" id="3_6opos"]
+
+[node name="day_and_night_cycle" type="Node2D" unique_id=2043549724]
+script = ExtResource("1_daqcl")
+
+[node name="controller" type="Node" parent="." unique_id=634413281]
+unique_name_in_owner = true
+script = ExtResource("2_01474")
+day_duration = 600.0
+night_duration = 300.0
+
+[node name="sun_and_moon_lighting" type="Node" parent="." unique_id=1855051194]
+unique_name_in_owner = true
+script = ExtResource("3_6opos")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=390283357]
+unique_name_in_owner = true
+
+[node name="moon_and_sun_directional_light" type="DirectionalLight2D" parent="." unique_id=1981591876]
+unique_name_in_owner = true
+rotation = -0.7853982
+color = Color(0.6403502, 0.6509972, 1, 1)
+energy = 0.1
+shadow_enabled = true

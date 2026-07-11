@@ -1,57 +1,9 @@
 [gd_scene format=3 uid="uid://vfk6y2okfcwh"]
 
 [ext_resource type="Script" uid="uid://bri3yb7bwcd2h" path="res://main.gd" id="1_lquwl"]
-[ext_resource type="PackedScene" uid="uid://biuxhww2rvkxf" path="res://characters/player/player.tscn" id="2_h2yge"]
-[ext_resource type="PackedScene" uid="uid://bimq0xy160076" path="res://components/camera/camera.tscn" id="3_h2yge"]
-[ext_resource type="AudioStream" uid="uid://cfrskog7j4p8g" path="res://assets/audio/the_forest_sounds.mp3" id="4_1bvp3"]
-[ext_resource type="PackedScene" uid="uid://d2r85jdcjejfs" path="res://environment/map_1/map_1.tscn" id="4_lquwl"]
-[ext_resource type="Script" uid="uid://bvso5oks0ii4u" path="res://ui/resource_display/resource_display_manager.gd" id="6_272bh"]
-[ext_resource type="PackedScene" uid="uid://db7hv3r5ym8ue" path="res://ui/resource_display/ResourceDisplay.tscn" id="7_5vw27"]
-[ext_resource type="PackedScene" uid="uid://ckood1dquw1vk" path="res://ui/in_game_menu/in_game_menu.tscn" id="8_5vw27"]
+[ext_resource type="PackedScene" uid="uid://doqq04xbq42ne" path="res://components/scenes_manager/scene_manager.tscn" id="7_272bh"]
 
 [node name="Main" type="Node2D" unique_id=547192661]
 script = ExtResource("1_lquwl")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=782453466]
-stream = ExtResource("4_1bvp3")
-
-[node name="Player" parent="." unique_id=2038481813 instance=ExtResource("2_h2yge")]
-position = Vector2(1070, -517)
-
-[node name="map_1" parent="." unique_id=520277169 instance=ExtResource("4_lquwl")]
-
-[node name="Camera" parent="." unique_id=404260496 instance=ExtResource("3_h2yge")]
-position_smoothing_enabled = true
-
-[node name="InGameMenu" parent="." unique_id=953616469 instance=ExtResource("8_5vw27")]
-
-[node name="FPS" type="Label" parent="InGameMenu" unique_id=1906973026]
-offset_left = 28.0
-offset_top = 33.0
-offset_right = 68.0
-offset_bottom = 56.0
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1183925779]
-
-[node name="ResourceUI" type="Control" parent="CanvasLayer" unique_id=87678681]
-layout_mode = 3
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -444.0
-offset_bottom = 61.0
-grow_horizontal = 0
-
-[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/ResourceUI" unique_id=1106484900]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/ResourceUI/PanelContainer" unique_id=712507900]
-layout_mode = 2
-alignment = 1
-script = ExtResource("6_272bh")
-resource_display_scene = ExtResource("7_5vw27")
+[node name="scene_manager" parent="." unique_id=681116514 instance=ExtResource("7_272bh")]

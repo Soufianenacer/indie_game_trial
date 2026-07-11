@@ -22,7 +22,7 @@ func _physics_process(delta: float) -> void:
 		var camera: Camera = _get_first_in_group("camera") as Camera
 		camera._set_new_camera_static_position(Vector2(2.0, 100.0))
 		camera._new_zoom(Vector2(2.0,2.0))
-		AudioBus._play_sound_at(self, "the_forest_sounds", 5.0, 0.5)
+		#AudioBus._play_sound_at(self, "the_forest_sounds", 5.0, 0.5)
 	# WARNING Press A/Q to folow the player
 	if Input.is_action_just_pressed("test_a"):
 		var camera: Camera = _get_first_in_group("camera") as Camera
@@ -44,6 +44,6 @@ func _physics_process(delta: float) -> void:
 func _get_first_in_group(group_name: String) -> Node:
 	return get_tree().get_first_node_in_group(group_name)
 
-func _draw() -> void:
-	draw_circle(Vector2.ZERO, harvest_range, Color(0.0, 0.0, 0.0, 0.196))
+#func _draw() -> void:
+	#draw_circle(Vector2.ZERO, harvest_range, Color(0.0, 0.0, 0.0, 0.196))
 	

@@ -5,6 +5,8 @@ extends Area2D
 @export var clicks_required: int = 5
 @export var resource_amount: int = 1
 
+@export var sound_effect_name: String = ""
+
 var current_clicks: int = 0
 var player: Player
 
@@ -22,6 +24,7 @@ func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> voi
 		_on_clicked()
 
 func _on_clicked() -> void:
+	AudioBus._play_sound(sound_effect_name,true ,self)
 	current_clicks += 1
 	if current_clicks >= clicks_required:
 		ResourceManager.add_resource(resource_name, resource_amount)

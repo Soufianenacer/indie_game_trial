@@ -6,6 +6,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_deim2"]
 size = Vector2(51, 52)
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_deim2"]
+polygon = PackedVector2Array(-26, 32, -26, 22, -32, 0, -22, 2, -20, -19, 25, -19, 28, 32)
+
 [node name="WoodenTrunk" type="Node2D" unique_id=1006282423]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1410120077]
@@ -18,7 +21,11 @@ region_rect = Rect2(800, 160, 32, 32)
 resource_name = "NG"
 clicks_required = 2
 resource_amount = 17
+sound_effect_name = "chopping_wood"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Clickable" unique_id=279179013]
 position = Vector2(2.5, 6)
 shape = SubResource("RectangleShape2D_deim2")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=1119488797]
+occluder = SubResource("OccluderPolygon2D_deim2")

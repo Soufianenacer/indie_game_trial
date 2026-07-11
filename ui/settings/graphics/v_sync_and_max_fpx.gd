@@ -17,15 +17,15 @@ func _ready() -> void:
 func _setup_vsync_options() -> void:
 	v_sync_option_button.clear()
 	# Loop through the VSYNC_DIC dictionary in GameSettings
-	for label: String in GameSettings.VSYNC_DIC.keys():
-		var vsync_enum_value = GameSettings.VSYNC_DIC[label]
+	for label: String in GameSettings.Graphics.VSYNC_DIC.keys():
+		var vsync_enum_value = GameSettings.Graphics.VSYNC_DIC[label]
 		v_sync_option_button.add_item(label, vsync_enum_value)
 
 func _setup_max_fps_options() -> void:
 	max_fps_option_button.clear()
 	# Loop through the MAX_FPS_DIC dictionary in GameSettings
-	for label: String in GameSettings.MAX_FPS_DIC.keys():
-		var fps_enum_value = GameSettings.MAX_FPS_DIC[label]
+	for label: String in GameSettings.Graphics.MAX_FPS_DIC.keys():
+		var fps_enum_value = GameSettings.Graphics.MAX_FPS_DIC[label]
 		max_fps_option_button.add_item(label, fps_enum_value)
 
 func _on_vsync_changed(_index: int) -> void:

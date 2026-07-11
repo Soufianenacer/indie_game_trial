@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="incremental"
-run/main_scene="uid://c7ls7jndeyrd0"
+run/main_scene="uid://vfk6y2okfcwh"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="uid://dn8knte6wrsjn"
 
@@ -24,6 +24,7 @@ buses/default_bus_layout="uid://bs7jftva547eu"
 AudioBus="*uid://cjo24rahulahs"
 ResourceManager="*uid://ddoeis1i645wq"
 GameSettings="*uid://bh6j4pu5mwx4d"
+SceneManager="*uid://bbhdir6lkrtcj"
 
 [display]
 
