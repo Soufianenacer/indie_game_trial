@@ -1,7 +1,7 @@
-extends CanvasLayer
+extends Control
 
-@onready var settings_ui: Control = $Control/SettingsUi
-@onready var in_game_menu_buttons: VBoxContainer = $Control/InGameMenuButtons
+@onready var in_game_menu_buttons: VBoxContainer = $InGameMenuButtons
+@onready var settings_ui: Control = $SettingsUi
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("escape"):
@@ -26,7 +26,7 @@ func _on_settings_pressed() -> void:
 
 func _on_main_menu_pressed() -> void:
 	get_tree().paused = false
-	SceneManager.scene_transition_signal.emit("main_menu")
+	get_tree().change_scene_to_file("res://ui/main_menu/main_menu.tscn")
 
 func _on_save_and_exit_pressed() -> void:
 	get_tree().quit()

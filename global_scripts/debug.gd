@@ -1,5 +1,11 @@
 extends Node
-class_name SceneManagerScenePaths
+
+
+
+
+
+
+
 
 
 

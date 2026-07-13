@@ -4,7 +4,6 @@ extends Node
 
 # ========= audio resource oath ========= #
 const default_resource_state_path: String = "res://global_scripts/audio/audio_res.tres"
-
 # ========= preload ========= #
 const audioPaths = preload("res://global_scripts/audio/audio_paths.gd")
 var audio_paths = audioPaths.new()
@@ -29,7 +28,9 @@ func _create_pool() -> void:
 
 func _play_sound(sound_name: String,is_random_pitch: bool ,target: Node2D = null) -> void:
 	if not sounds.has(sound_name):
+		print("no sound here ma nigga")
 		return
+	print("no sound here ma nigga")
 	var player: AudioStreamPlayer2D = sounds[sound_name]
 	
 	if target:

@@ -1,17 +1,21 @@
 extends Node
+class_name SunAndMoonLighting
 
 @onready var light: DirectionalLight2D = %moon_and_sun_directional_light
 @onready var controller: DayAndNightController = %controller
 
-const DEFAULT_ANGLE: int = 60
-const START_ANGLE: float = deg_to_rad(-DEFAULT_ANGLE)
-const END_ANGLE: float = deg_to_rad(DEFAULT_ANGLE)
+var _start_angle: float
+var _end_angle: float
 
-func _ready() -> void:
-	light.rotation = START_ANGLE
 
-func _process(delta: float) -> void:
-	if light.rotation < END_ANGLE:
-		light.rotation += (END_ANGLE - START_ANGLE) / controller.get_phase_duration() * delta
+func setup(swing_angle_degrees: float) -> void:
+	_start_angle = deg_to_rad(-swing_angle_degrees)
+	_end_angle = deg_to_rad(swing_angle_degrees)
+	light.rotation = _start_angle
+
+
+func update(delta: float) -> void:
+	if light.rotation < _end_angle:
+		light.rotation += (_end_angle - _start_angle) / controller.get_phase_duration() * delta
 	else:
-		light.rotation = START_ANGLE
+		light.rotation = _start_angle

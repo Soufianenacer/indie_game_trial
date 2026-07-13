@@ -44,8 +44,7 @@ var current_zoom: Vector2 = Vector2(1.0, 1.0)
 
 func _ready() -> void:
 	add_to_group("camera")
-	
-	player = utils._get_first_in_group("player") as Player
+	player = utils._get_first_in_group("player")
 	global_position = player.global_position
 	
 	current_zoom = Vector2(initial_zoom, initial_zoom)
@@ -54,6 +53,8 @@ func _ready() -> void:
 	screen_center = get_viewport_rect().size / 2.0
 
 func _physics_process(delta: float) -> void:
+	if not player:
+		return
 	match camera_mode:
 		CAMERA_MODE.FOLLOW_PLAYER:
 			global_position = camera_follow_player._update(delta)

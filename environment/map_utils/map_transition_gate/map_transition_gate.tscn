@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cpmi3ebdtmvje"]
+
+[ext_resource type="Script" uid="uid://dmu1leg48eo81" path="res://environment/map_utils/map_transition_gate/map_transition_gate.gd" id="1_71vuv"]
+
+[node name="map_transition_gate" type="Area2D" unique_id=1212330417]
+script = ExtResource("1_71vuv")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

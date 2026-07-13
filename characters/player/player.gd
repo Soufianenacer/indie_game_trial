@@ -7,6 +7,8 @@ var direction: float = 0.0
 var harvest_range: float = 200.0
 var default_index: int = 100
 
+var is_player_paused = false
+
 func _ready() -> void:
 	add_to_group("player")
 	z_index = default_index
@@ -14,6 +16,8 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
+	if is_player_paused:
+		return
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 		
@@ -44,6 +48,6 @@ func _physics_process(delta: float) -> void:
 func _get_first_in_group(group_name: String) -> Node:
 	return get_tree().get_first_node_in_group(group_name)
 
-#func _draw() -> void:
-	#draw_circle(Vector2.ZERO, harvest_range, Color(0.0, 0.0, 0.0, 0.196))
-	
+	#func _draw() -> void:
+		#draw_circle(Vector2.ZERO, harvest_range, Color(0.0, 0.0, 0.0, 0.196))
+		

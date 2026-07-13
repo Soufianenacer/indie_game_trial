@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://eox4lli85yfl"]
+
+[ext_resource type="Texture2D" uid="uid://dmynm4vh4cxwn" path="res://assets/backgrounds/Space_Background1.png" id="1_25hnb"]
+[ext_resource type="Script" uid="uid://6snljkdw7g0d" path="res://environment/backgrounds/background_image.gd" id="1_wc5un"]
+
+[node name="background_image" type="Node2D" unique_id=1439689159]
+script = ExtResource("1_wc5un")
+
+[node name="SpaceBackground1" type="Sprite2D" parent="." unique_id=1590037207]
+texture = ExtResource("1_25hnb")

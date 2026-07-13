@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://ckood1dquw1vk"]
+
+[ext_resource type="Script" uid="uid://cijik24dv7jy" path="res://ui/main_menu/in_game_menu/in_game_main_menu.gd" id="1_wef4k"]
+[ext_resource type="PackedScene" uid="uid://bjdcykokfqq4d" path="res://ui/settings/Settings_ui.tscn" id="2_xfjdh"]
+
+[node name="InGameMenu" type="Control" unique_id=1367678698]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 2
+script = ExtResource("1_wef4k")
+
+[node name="InGameMenuButtons" type="VBoxContainer" parent="." unique_id=982751870]
+visible = false
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = -68.0
+offset_right = 75.0
+offset_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Keep Playing" type="Button" parent="InGameMenuButtons" unique_id=1623122672]
+layout_mode = 2
+text = "Keep playing"
+
+[node name="settings" type="Button" parent="InGameMenuButtons" unique_id=1289268410]
+layout_mode = 2
+text = "Settings"
+
+[node name="Main menu" type="Button" parent="InGameMenuButtons" unique_id=1480121872]
+layout_mode = 2
+text = "Main Menu"
+
+[node name="Save and Exit" type="Button" parent="InGameMenuButtons" unique_id=695776760]
+layout_mode = 2
+text = "Save and Exit"
+
+[node name="SettingsUi" parent="." unique_id=1399352869 instance=ExtResource("2_xfjdh")]
+visible = false
+layout_mode = 1
+
+[node name="go_back" type="Button" parent="SettingsUi" unique_id=454270161]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 327.0
+offset_top = -208.0
+offset_right = 398.0
+offset_bottom = -177.0
+grow_horizontal = 2
+text = "Go Back"
+
+[connection signal="pressed" from="InGameMenuButtons/Keep Playing" to="." method="_on_keep_playing_pressed"]
+[connection signal="pressed" from="InGameMenuButtons/settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="InGameMenuButtons/Main menu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="InGameMenuButtons/Save and Exit" to="." method="_on_save_and_exit_pressed"]
+[connection signal="pressed" from="SettingsUi/go_back" to="." method="_on_go_back_pressed"]

@@ -2,7 +2,7 @@ extends Area2D
 
 @export var is_hitble: bool = true
 @export var life_point: int = 5
-@onready var map_1: Node2D = $".."
+#@onready var map_1: Node2D = $".."
 
 
 # Called when the node enters the scene tree for the first time.

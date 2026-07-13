@@ -10,8 +10,8 @@ config_version=5
 
 [application]
 
-config/name="incremental"
-run/main_scene="uid://vfk6y2okfcwh"
+config/name="Incremental"
+run/main_scene="uid://d1lyj0y8es1vv"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="uid://dn8knte6wrsjn"
 
@@ -25,6 +25,7 @@ AudioBus="*uid://cjo24rahulahs"
 ResourceManager="*uid://ddoeis1i645wq"
 GameSettings="*uid://bh6j4pu5mwx4d"
 SceneManager="*uid://bbhdir6lkrtcj"
+Debug="*uid://ba1a3ivamrk6i"
 
 [display]
 

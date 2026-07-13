@@ -6,12 +6,12 @@
 
 [node name="day_and_night_cycle" type="Node2D" unique_id=2043549724]
 script = ExtResource("1_daqcl")
+day_duration = 1.0
+night_duration = 1.0
 
 [node name="controller" type="Node" parent="." unique_id=634413281]
 unique_name_in_owner = true
 script = ExtResource("2_01474")
-day_duration = 600.0
-night_duration = 300.0
 
 [node name="sun_and_moon_lighting" type="Node" parent="." unique_id=1855051194]
 unique_name_in_owner = true
